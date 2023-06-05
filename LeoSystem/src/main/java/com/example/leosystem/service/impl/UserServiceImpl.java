@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String addUser(User user) {
        int ok= userMapper.insert(user);
-        return ok==1?"ok":"fail";
+        return ok==1?"okss":"fail";
     }
 
     @Override
