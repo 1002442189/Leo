@@ -6,6 +6,9 @@ import com.example.leosystem.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service //标记当前类是一个service类，加上该注解会将当前类自动注入到spring容器中，不需要在xml文件定义bean
@@ -13,7 +16,10 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
     @Override
-    public String addUser(User user) {
+    public String addUser(User user) throws ParseException {
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date=new Date();
+        user.setCreateTime(date);
        int ok= userMapper.insert(user);
         return ok==1?"okss":"fail";
     }

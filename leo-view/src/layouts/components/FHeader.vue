@@ -1,6 +1,7 @@
 <template>
     <div class="f-header">
-        <div class="pl-50 ">头部</div>
+         <el-button class="addButton" style="margin-left:80px" type="success" @click="mains">主页</el-button>
+   
          <el-button class="addButton" type="success" @click="addButton">新增</el-button>
     </div>
 </template>
@@ -11,6 +12,9 @@ const router=useRouter();
   const addButton=()=>{
     router.push("/add")
   }
+  const mains=()=>{
+    router.push("/")
+  }
 </script>
 
 <style>
@@ -19,9 +23,6 @@ const router=useRouter();
   height: 64px;
   z-index: 1000;
 }
-.pl-50{
-  color: #056DE8;
-  padding-right: 40px;
-}
+ 
  
 </style>

@@ -64,7 +64,7 @@ const onSubmit = () => {
     if (!valid) {
       return false;
     } 
-   login(form.name,form.age).then(res=>{
+   login(form).then(res=>{
     console.log(res)
    })
   });

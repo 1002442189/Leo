@@ -2,12 +2,13 @@ package com.example.leosystem.service;
 
 import com.example.leosystem.entity.User;
 
+import java.text.ParseException;
 import java.util.List;
 
 public interface UserService {
 
       //新增
-      String addUser(User user);
+      String addUser(User user) throws ParseException;
 
     //修改
     String updateUser(User user);

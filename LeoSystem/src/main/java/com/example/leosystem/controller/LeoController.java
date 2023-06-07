@@ -16,7 +16,7 @@ public class LeoController {
     UserService userService;
 
     @PostMapping("/add")
-    public String addUser(@RequestBody User user){
+    public String addUser(@RequestBody User user) throws Exception{
       return userService.addUser(user);
     }
 
