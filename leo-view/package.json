@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@jsdawn/vue3-tinymce": "^2.0.4",
+    "@tinymce/tinymce-vue": "^5.1.0",
     "axios": "^1.4.0",
     "element-plus": "^2.3.6",
+    "tinymce": "^6.5.0",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2",
     "vuex": "^4.0.2"

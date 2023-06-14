@@ -4,8 +4,8 @@
    <ul>
     <li v-for="mes in count" :key="mes" class="infinite-list-item">
       <div class="c-title">
-        <div style="maring-bottom:5px">{{mes.title}}</div>
-        <div>{{mes.content}}</div>
+        <div class="text-1xl font-semibold" style="maring-bottom:5px  ">{{mes.title}}</div>
+        <div class="text-sm" v-html="mes.content"></div>
         </div>
     
     </li>
@@ -17,7 +17,7 @@
 <script setup>
 import  {ref} from 'vue'
 import {selectAll} from "~/api/manager" 
- debugger;
+ 
 const count=ref([]) 
 
 selectAll().then(res=>{
