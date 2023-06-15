@@ -1,8 +1,8 @@
  <template>
   <div class="f-content">
-    <el-form :model="form">
-      <el-form-item  >
-        <el-input class="h-10" v-model="form.title" placeholder="请输入标题" />
+    <el-form :model="form"> 
+      <el-form-item class="input-title" > 
+        <el-input class="h-10 rounded-2xl" v-model="form.title" placeholder="请输入标题" />
       </el-form-item>
       <vue3-tinymce v-model="state.content" :setting="state.setting" />
       <el-form-item class="buttons">
@@ -75,5 +75,9 @@ const returnMain = () => {
 .f-content {
   width: 1200px;
   padding: 30px;
+}
+.input-title{
+  border: #FFF solid 1px;
+  background-color: #FFF;
 }
 </style>

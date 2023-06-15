@@ -4,10 +4,9 @@
    <ul>
     <li v-for="mes in count" :key="mes" class="infinite-list-item">
       <div class="c-title">
-        <div class="text-1xl font-semibold" style="maring-bottom:5px  ">{{mes.title}}</div>
-        <div class="text-sm" v-html="mes.content"></div>
-        </div>
-    
+        <div class="text-1xl font-semibold" style="maring-bottom:5px">{{mes.title}}</div>
+        <div class="text-sm" v-html="mes.content"></div> 
+        </div> 
     </li>
    </ul>
      </el-card>
@@ -32,12 +31,14 @@ selectAll().then(res=>{
     width: 100%;
   }
   .c-title{
-text-align: left;
-  background-color: #F6F6F6;
-  padding-bottom: 10px;
+text-align: left;  
   padding-bottom:10px;
-  border-bottom:solid 1px #dee2e6 ;
+  word-wrap:break-word;/*超出显示范围自动换行*/
   padding-top: 10px;
+  border-bottom:solid 1px #dee2e6 ;
 }
-
+.text-sm{
+  margin-top: 8px;
+  margin-bottom: 10px; 
+} 
 </style>
