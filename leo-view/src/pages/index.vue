@@ -16,7 +16,7 @@
 <script setup>
 import  {ref} from 'vue'
 import {selectAll} from "~/api/manager" 
- 
+
 const count=ref([]) 
 
 selectAll().then(res=>{
@@ -26,7 +26,9 @@ selectAll().then(res=>{
  
 </script>
 <style>
- 
+ body{
+background-image: url();
+ }
   .box-card{
     width: 100%;
   }

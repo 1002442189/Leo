@@ -1,34 +1,59 @@
 <template>
  
-    <div class="f-header">
-        <div class="f-title"> 
-          <div class="f-shouye font-serif hover:font-sans"  id="shouye" @click="mains">首页</div> 
-          <div class="f-add font-serif hover:font-sans"  id="xinzen" @click="addButton">新增</div> 
-           <el-input  class="souSuo inputDeep  font-serif hover:font-sans" v-model="souSuo" placeholder="搜索" > <template #prefix>
-            <el-icon class="el-icon-right"><Search /></el-icon>
-          </template></el-input> 
-          <div class="line"></div>
-        </div>
-       
+    <div class="f-header"> 
+    <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b"
+      @select="handleSelect">
+      <el-menu-item index="1" @click="mains">首页</el-menu-item>
+      <el-menu-item index="2" @click="addButton">新增</el-menu-item>
+      <el-input  class="souSuo inputDeep  font-serif hover:font-sans" v-model="souSuo" placeholder="搜索" > <template #prefix>
+        <el-icon class="el-icon-right"><Search /></el-icon>
+      </template></el-input> 
+      <el-button type="primary" round @click="Searchs">搜索</el-button>
+      <el-avatar class="touxiang" shape="square" :size="40" :src="squareUrl" /> 
+    </el-menu> 
+   
     </div>
 </template>
 
 <script setup>
   import {useRouter} from 'vue-router'
-  import {ref} from 'vue';
+  import {ref,toRefs,reactive } from 'vue';
  
+  const activeIndex = ref('1')  
+  const state = reactive({ 
+  squareUrl:
+    'public/images/bgimg1.jpg',
+})
+
+const { circleUrl, squareUrl, sizeList } = toRefs(state)
+
+const handleSelect = (key, keyPath) => {  
+  if(key=='1'){
+    mains()
+  }else{
+    addButton()
+  }
+}
+
   const souSuo = ref('')
   const router=useRouter();
-  const addButton=()=>{
-    
+  const addButton=()=>{ 
     router.push("/add")
-  }
-  const yesButton=()=>{
-    router.push("/yes")
+  } 
+  const Searchs=()=>{
+    
+    router.push("/")
   }
   const mains=()=>{
     router.push("/")
   }
+  router.push("/") //刷新时回到首页
 </script>
 
 <style>
@@ -42,38 +67,28 @@
   background-color: #FFFFFF;
   
 } 
-.f-shouye{ 
-  cursor: pointer; 
-  display: inline-block; 
-  margin:15px 10px 10px 0;  
-  padding-bottom: 4px;
-  border-bottom: red solid 3px;
-  }
- 
-.f-add{
-  cursor: pointer; 
-  display: inline-block; 
-  }
-  
-  .f-souSuo{
-    margin-left: 20px;
-    display: inline-block; 
-  } 
-  .f-title{
-    background-color: aquamarine;
-  }
+.el-menu-demo{
+  display: inline-block;
+  width: 100%;
+}
   .souSuo{ 
     background-color: #F6F6F6; 
-    height: 35px;
-    width: 350px;    
-    margin-left: 10px;
+    height: 30px;
+    width: 300px;    
+    margin: 10px 10px 10px 0;
     border-radius:40px !important;
-    font-size: 20px; 
+    font-size: 15px; 
+
   } 
   /* 去掉搜索的边框 */
   .el-input > .el-input__wrapper{
   background: none;
   box-shadow: none;
  }
- 
+ .touxiang{
+  display:inline-block;
+    position: relative;
+    top: 15px;
+    left:20px;
+ }
 </style>
