@@ -1,5 +1,4 @@
-<template>
- 
+<template> 
     <div class="f-header"> 
     <el-menu
       :default-active="activeIndex"
@@ -11,20 +10,21 @@
       @select="handleSelect">
       <el-menu-item index="1" @click="mains">首页</el-menu-item>
       <el-menu-item index="2" @click="addButton">新增</el-menu-item>
+      <el-menu-item index="3" @click="ceshi">测试</el-menu-item>
       <el-input  class="souSuo inputDeep  font-serif hover:font-sans" v-model="souSuo" placeholder="搜索" > <template #prefix>
         <el-icon class="el-icon-right"><Search /></el-icon>
       </template></el-input> 
       <el-button type="primary" round @click="Searchs">搜索</el-button>
       <el-avatar class="touxiang" shape="square" :size="40" :src="squareUrl" /> 
     </el-menu> 
-   
     </div>
 </template>
 
 <script setup>
   import {useRouter} from 'vue-router'
   import {ref,toRefs,reactive } from 'vue';
- 
+  import emit from "~/eventBus/mitt.js";
+  import {ElNotification,ElMessageBox} from 'element-plus'
   const activeIndex = ref('1')  
   const state = reactive({ 
   squareUrl:
@@ -43,13 +43,20 @@ const handleSelect = (key, keyPath) => {
 
   const souSuo = ref('')
   const router=useRouter();
+  const ceshi=()=>{
+    router.push("/ceshi")
+  }
+  /*新增*/ 
   const addButton=()=>{ 
     router.push("/add")
   } 
-  const Searchs=()=>{
-    
-    router.push("/")
+  /*搜索框*/ 
+  const Searchs=()=>{ 
+   
+    emit.emit('search',souSuo.value)
+    router.push("/") 
   }
+  /*首页*/ 
   const mains=()=>{
     router.push("/")
   }

@@ -13,10 +13,13 @@
     "@tinymce/tinymce-vue": "^5.1.0",
     "axios": "^1.4.0",
     "element-plus": "^2.3.6",
+    "eventbus": "0.0.3",
     "jquery": "^3.7.0",
+    "mitt": "^3.0.0",
     "tinymce": "^6.5.0",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2",
+    "vue3-eventbus": "^2.0.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

@@ -1,7 +1,3 @@
-<script setup>
- 
-</script>
-
 <template>  
  <router-view></router-view>
 </template>
@@ -16,6 +12,7 @@
     height: 3px!important;
  }
  body{
-    background-color: #F6F6F6;
+    
  }
+ 
 </style>

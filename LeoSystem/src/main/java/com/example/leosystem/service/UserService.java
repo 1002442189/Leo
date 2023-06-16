@@ -21,4 +21,7 @@ public interface UserService {
 
     //查询单个用户
     User selectOneUser(Long id);
+
+    /*对标题或者内容进行模糊搜索*/
+    List<User> likeSearch(User user);
 }

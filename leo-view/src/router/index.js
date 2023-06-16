@@ -9,7 +9,7 @@ import About from '~/pages/about.vue'
 import Add from "~/pages/add.vue"
 import NotFound from '~/pages/404.vue'
 import Login from '~/pages/login.vue'
-import Yes from "~/pages/yes.vue"
+import Ceshi from "~/pages/ceshi.vue"
 const routes=[
     {
         path:'/',
@@ -25,8 +25,8 @@ const routes=[
             path:'/add',
             component:Add
         } ,{
-            path:'/yes',
-            component:Yes
+            path:'/ceshi',
+            component:Ceshi
         } 
     
     ]

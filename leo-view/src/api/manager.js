@@ -10,3 +10,7 @@ export   function add(params){
  export   function selectAll(){
   return axios.post("/leo/selectlist")
  }
+ export   function likeSearch(form){
+  return axios.post("/leo/likesearch",form)
+ }
+ 

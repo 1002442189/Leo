@@ -34,6 +34,7 @@ public class LeoController {
 
     @PostMapping("/selectlist")
     public List<User> selectListUser(){
+
         return userService.selectUser();
     }
 
@@ -41,6 +42,11 @@ public class LeoController {
     public User selectOneUser(@RequestBody User user){
         return userService.selectOneUser(user.getId());
     }
+    @PostMapping("/likesearch")
+    public List<User> search(@RequestBody User user){
+        return userService.likeSearch(user);
+    }
+
     @PostMapping("/update")
     public String updateUser(@RequestBody User user){
         return userService.updateUser(user);
